@@ -7,12 +7,15 @@ public class ObjectSpawner : MonoBehaviour {
 
     public float SpawnRate;
 
+    private int neg;
     private float SpawnTimer;
 
     // Use this for initialization
     void Start () {
+        neg = -1;
         GameObject temp = Instantiate(obj, transform.position, Quaternion.identity);
-        temp.GetComponent<Rigidbody2D>().AddForce(temp.transform.right * Random.Range(-50, 50));
+        temp.GetComponent<Rigidbody2D>().AddForce(temp.transform.right * neg*Random.Range(100,200));
+        neg *= -1;
         SpawnTimer = Time.time + SpawnRate;
     }
 	
@@ -21,7 +24,8 @@ public class ObjectSpawner : MonoBehaviour {
         if (SpawnTimer < Time.time)
         {
             GameObject temp = Instantiate(obj, transform.position, Quaternion.identity);
-            temp.GetComponent<Rigidbody2D>().AddForce(temp.transform.right * Random.Range(-50, 50));
+            temp.GetComponent<Rigidbody2D>().AddForce(temp.transform.right * neg * Random.Range(100, 200));
+            neg *= -1;
             SpawnTimer = Time.time + SpawnRate;
         }
     }
