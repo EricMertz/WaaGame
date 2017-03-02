@@ -24,14 +24,20 @@ public class EnemySpawnerScript : MonoBehaviour {
             if (temp < 0.5f)
             {
                 Instantiate(cold, transform.position, Quaternion.identity);
-                SpawnTimer = Time.time + SpawnRate;
-                SpawnRate *= .99f;
+                SpawnTimer = Time.time + Random.Range(.2f,SpawnRate);
+                if (SpawnRate > 3f)
+                {
+                    SpawnRate *= .99f;
+                }
             }
             else
             {
                 Instantiate(hot, transform.position, Quaternion.identity);
-                SpawnTimer = Time.time + SpawnRate;
-                SpawnRate *= .99f;
+                SpawnTimer = Time.time + Random.Range(.2f, SpawnRate);
+                if (SpawnRate > 3f)
+                {
+                    SpawnRate *= .99f;
+                }
             }
         }
         
