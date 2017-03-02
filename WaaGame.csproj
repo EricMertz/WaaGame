@@ -78,6 +78,8 @@
     <Compile Include="Assets\Code\CELSIUS\EnemyBehavior.cs" />
     <Compile Include="Assets\Code\CELSIUS\EnemySpawnerScript.cs" />
     <Compile Include="Assets\Code\CELSIUS\WallSpawner.cs" />
+    <Compile Include="Assets\Code\KINETIC\ObjectBehavior.cs" />
+    <Compile Include="Assets\Code\KINETIC\ObjectSpawner.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
