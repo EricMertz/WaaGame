@@ -77,7 +77,9 @@
   <ItemGroup>
     <Compile Include="Assets\Code\CELSIUS\EnemyBehavior.cs" />
     <Compile Include="Assets\Code\CELSIUS\EnemySpawnerScript.cs" />
+    <Compile Include="Assets\Code\CELSIUS\WallBehavior.cs" />
     <Compile Include="Assets\Code\CELSIUS\WallSpawner.cs" />
+    <Compile Include="Assets\Code\GAMECONTROLLER\GameController.cs" />
     <Compile Include="Assets\Code\GREENFURY\FuryBehavior.cs" />
     <Compile Include="Assets\Code\GREENFURY\GFEnemyBehavior.cs" />
     <Compile Include="Assets\Code\GREENFURY\GFEnemySpawner.cs" />
