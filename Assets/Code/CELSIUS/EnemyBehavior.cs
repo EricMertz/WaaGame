@@ -28,11 +28,11 @@ public class EnemyBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (gameController.gamestate())
+        /*if (gameController.gamestate())
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            Time.timeScale = 0f;
-        }
+            
+        }*/
 	}
     void OnCollisionEnter2D(Collision2D coll)
     {

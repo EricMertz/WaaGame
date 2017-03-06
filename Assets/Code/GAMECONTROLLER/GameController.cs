@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-    public GUIText scoreText;
-    public GUIText livesText;
-    public GUIText gameOverText;
-    public GUIText restartText;
+    public Text scoreText;
+    public Text livesText;
+    public Text gameOverText;
+    public Text restartText;
     public int count;
     private int score;
     private bool gameOver;
@@ -18,6 +19,8 @@ public class GameController : MonoBehaviour {
         
         gameOver = false;
         score = 0;
+        gameOverText.text = "";
+        restartText.text = "";
         UpdateScore();
         UpdateLives();
         
@@ -33,6 +36,7 @@ public class GameController : MonoBehaviour {
             {
                 
                 Application.LoadLevel(Application.loadedLevel);
+                Time.timeScale = 1f;
             }
         }
     }
@@ -70,8 +74,9 @@ public class GameController : MonoBehaviour {
 
     public void GameOver()
     {
-        
+
         gameOverText.text = "Game Over!";
         gameOver = true;
+        Time.timeScale = 0f;
     }
 }

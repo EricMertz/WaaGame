@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class GFEnemyBehavior : MonoBehaviour {
     public float speed;
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private GameController gameController;
+    // Use this for initialization
+    void Start () {
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        if (gameControllerObject != null)
+        {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
+        if (gameController == null)
+        {
+            Debug.Log("Cannot find 'GameController' script");
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -19,8 +28,24 @@ public class GFEnemyBehavior : MonoBehaviour {
     {
         //Debug.Log("colliding");
         if (coll.gameObject.tag == "GreenFury")
+        {
+            gameController.AddScore(1);
             Destroy(this.gameObject);
+        }
 
+        if(coll.gameObject.tag == "Tree")
+        {
+            
+            if (gameController.get_count() <= 1)
+            {
+                gameController.GameOver();
+            }
+            else
+            {
+                gameController.TakeLife();
+                Destroy(this.gameObject);
+            }
+        }
 
     }
 }
