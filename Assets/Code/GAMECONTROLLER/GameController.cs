@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -12,11 +13,12 @@ public class GameController : MonoBehaviour {
     public int count;
     private int score;
     private bool gameOver;
+	private int currLevel;
     
 
     void Start()
     {
-        
+		currLevel = SceneManager.GetActiveScene ().buildIndex;
         gameOver = false;
         score = 0;
         gameOverText.text = "";
@@ -29,13 +31,16 @@ public class GameController : MonoBehaviour {
 
     private void Update()
     {
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			SceneManager.LoadScene (0);
+		}
         if (gameOver)
         {
             restartText.text = "Press 'R' for Restart";
             if (Input.GetKeyDown(KeyCode.R))
             {
                 
-                Application.LoadLevel(Application.loadedLevel);
+				SceneManager.LoadScene(currLevel);
                 Time.timeScale = 1f;
             }
         }
